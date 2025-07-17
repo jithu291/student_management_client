@@ -1,18 +1,15 @@
 import { useState } from 'react';
 import { Menu, MenuItem, Button } from '@mui/material';
 import { ArrowDropDown } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+  const navigate = useNavigate();
 
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    navigate('/login');
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-10">
@@ -38,28 +35,14 @@ export default function Navbar() {
           <div className="flex items-center">
             <Button
               id="login-button"
-              aria-controls={open ? 'login-menu' : undefined}
               aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
               variant="outlined"
-              endIcon={<ArrowDropDown />}
               className="text-green-600 border-green-600 hover:bg-green-50"
             >
               Sign In
             </Button>
-            <Menu
-              id="login-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'login-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Admin</MenuItem>
-              <MenuItem onClick={handleClose}>Staff</MenuItem>
-            </Menu>
+            
           </div>
         </div>
       </div>
