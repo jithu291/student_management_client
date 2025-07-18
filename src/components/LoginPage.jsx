@@ -49,7 +49,6 @@ export default function LoginPage() {
       console.log("Response", res);
   
       dispatch(setCredentials({ token: res.token, user: res.user }));
-      // redirect if needed
       navigate('/dashboard');
     } catch (err) {
       console.error(err);
