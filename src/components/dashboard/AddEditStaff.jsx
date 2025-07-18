@@ -315,7 +315,7 @@ const AddEditStaff = () => {
         </DialogTitle>
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogContent className="p-6">
-            <Box className="space-y-4">
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
               <TextField
                 fullWidth
                 label="Full Name"
